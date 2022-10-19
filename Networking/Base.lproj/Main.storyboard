@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X8N-WO-F5K">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,25 +17,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ob3-F4-lZO">
-                                <rect key="frame" x="10" y="101" width="370" height="100"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Id8-aG-Ixq"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Download Image"/>
-                                <connections>
-                                    <segue destination="FNa-Rg-RP9" kind="show" id="OsB-th-9ch"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uPG-SA-Uyq">
+                                <rect key="frame" x="10" y="101" width="370" height="699"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ob3-F4-lZO">
+                                        <rect key="frame" x="0.0" y="0.0" width="370" height="226.33333333333334"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Download Image">
+                                            <fontDescription key="titleFontDescription" name="Verdana" family="Verdana" pointSize="35"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="FNa-Rg-RP9" kind="show" id="OsB-th-9ch"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOI-7S-avy">
+                                        <rect key="frame" x="0.0" y="236.33333333333331" width="370" height="226.33333333333331"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="GET Requests">
+                                            <fontDescription key="titleFontDescription" name="Verdana" family="Verdana" pointSize="35"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="getRequestButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mtz-bo-2AH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2d-A3-6HF">
+                                        <rect key="frame" x="0.0" y="472.66666666666657" width="370" height="226.33333333333331"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="POST Requests">
+                                            <fontDescription key="titleFontDescription" name="Verdana" family="Verdana" pointSize="35"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="postRequestButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E1M-7b-0Ly"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ob3-F4-lZO" secondAttribute="trailing" constant="10" id="2oe-2e-fjf"/>
-                            <constraint firstItem="ob3-F4-lZO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="4HX-pa-sQp"/>
-                            <constraint firstItem="ob3-F4-lZO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="XSD-ep-fLz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uPG-SA-Uyq" secondAttribute="bottom" constant="10" id="CcI-zt-4Zh"/>
+                            <constraint firstItem="uPG-SA-Uyq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Idz-1U-gAs"/>
+                            <constraint firstItem="uPG-SA-Uyq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Y88-iE-oSb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uPG-SA-Uyq" secondAttribute="trailing" constant="10" id="mcj-jj-Wkb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Networking" id="T9o-g5-oj1"/>
