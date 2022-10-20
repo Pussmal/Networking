@@ -29,17 +29,10 @@ class DownloadImageViewController: UIViewController {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         
-        guard let url = URL(string: imageURLString) else { return }
-        let session = URLSession(configuration: .default)
-        let request = URLRequest(url: url)
-        session.dataTask(with: request) { data, response, error in
-            if let data = data, let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-                    self.imageView.image = image
-                }
-            }
-        }.resume()
+        Networking.downloadImage(url: imageURLString) { image in
+            self.activityIndicator.stopAnimating()
+            self.imageView.image = image
+        }
     }
     
     deinit {
